@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Princess</title>
+    <style>
+        body {
+            text-align: center;
+            background: linear-gradient(to bottom right, #FFC0CB, #FF0000);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 2em;
+            color: #FFFFFF;
+        }
+
+        button {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            padding: 15px 30px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #8B008B; /* dark magenta when hovered */
+        }
+
+        #yesButton {
+            background-color: #FF1493; /* deep pink */
+            color: #8B0000; /* dark red */
+        }
+
+        #noButton {
+            background-color: #FF4500; /* red */
+            color: #8B0000; /* dark red */
+        }
+
+        /* Hearts and butterflies */
+        .decor {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "❤";
+            color: #FF1493;
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+        }
+
+        .heart::before {
+            left: -20px;
+        }
+
+        .heart::after {
+            left: 20px;
+        }
+
+        .butterfly::before,
+        .butterfly::after {
+            content: "🦋";
+            color: #87CEEB;
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+        }
+
+        .butterfly::before {
+            left: -20px;
+        }
+
+        .butterfly::after {
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Will you be my passenger princess?</h2>
+
+    <button id="yesButton" onclick="yesClicked()">Yes</button>
+    <button id="noButton" onmouseover="noHovered()">No</button>
+
+    <!-- Decorative elements -->
+    <div class="decor heart" style="top: 20vh; left: 10vw;"></div>
+    <div class="decor heart" style="top: 50vh; left: 60vw;"></div>
+    <div class="decor butterfly" style="top: 30vh; left: 40vw;"></div>
+    <div class="decor butterfly" style="top: 70vh; left: 80vw;"></div>
+    <div class="decor heart" style="top: 80vh; left: 25vw;"></div>
+    <div class="decor butterfly" style="top: 10vh; left: 70vw;"></div>
+
+    <script>
+        function yesClicked() {
+            window.location.href = 'confirmation.html';
+        }
+
+        function noHovered() {
+            var noButton = document.getElementById('noButton');
+            noButton.style.position = 'absolute';
+            noButton.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+            noButton.style.top = Math.floor(Math.random() * window.innerHeight) + 'px';
+        }
+    </script>
+
+</body>
+</html>
